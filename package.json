@@ -1,0 +1,23 @@
+{
+  "name": "photo-booth",
+  "version": "1.0.0",
+  "author": "David Connolly",
+  "description": "Photo booth with intelligent photo display.",
+  "main": "server/server.js",
+  "engines": {
+    "node": "0.10.32"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:davidjconnolly/photo-booth.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidjconnolly/photo-booth/issues"
+  },
+  "homepage": "https://github.com/davidjconnolly/photo-booth",
+  "dependencies": {
+    "express": "~4.8.0",
+    "underscore": "~1.7.0"
+  }
+}
