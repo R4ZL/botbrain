@@ -1,8 +1,8 @@
 {
-  "name": "photo-booth",
+  "name": "botbrain",
   "version": "1.0.0",
   "author": "David Connolly",
-  "description": "Photo booth with intelligent photo display.",
+  "description": "",
   "main": "server/server.js",
   "engines": {
     "node": "0.10.32"
