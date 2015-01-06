@@ -3,18 +3,21 @@ var fs=require("fs");
 
 gpiovalue=""
 teststring = "This is a test string for output";
-DoGPIOUpdate = 0;
+DoGPIOUpdate = true;
 
 
 
 var server = http.createServer(function(Request, response) {
 	response.writeHead(200, {"Content-Type": "text/plain"});
-	response.write(request+"\n");
+	response.write(Request.url+"\n");
 	response.write(teststring+"\n");
 	response.write(getDateTime()+"\n");
 	response.write(gpiovalue);
-
 	response.end();
+
+	if (Request.url=="/true"){DoGPIOUpdate = true; RunGPIOUpdate();}
+	if (Request.url=="/false"){DoGPIOUpdate = false;}
+
 });
 
 var RunGPIOUpdate = function() {
