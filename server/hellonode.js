@@ -3,21 +3,28 @@ var fs=require("fs");
 
 gpiovalue=""
 teststring = "This is a test string for output";
+DoGPIOUpdate = 0;
+
+
 
 var server = http.createServer(function(Request, response) {
 	response.writeHead(200, {"Content-Type": "text/plain"});
-
+	response.write(request+"\n");
 	response.write(teststring+"\n");
 	response.write(getDateTime()+"\n");
-
-	fs.readFile('/sys/class/gpio/gpio2/value', function (err, data) {
-	gpiovalue=data;});
-
-response.write(gpiovalue);
+	response.write(gpiovalue);
 
 	response.end();
 });
 
+var RunGPIOUpdate = function() {
+
+	fs.readFile('/sys/class/gpio/gpio2/value', function (err, data) {
+	gpiovalue=data;});
+	
+	if (DoGPIOUpdate){setTimeout(RunGPIOUpdate, 1000);}
+	
+}
 
 function getDateTime() {
 
